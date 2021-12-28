@@ -19,6 +19,9 @@ function startGame() {
     let cvs = document.getElementById("canvas")
     let ctx = cvs.getContext("2d")
 
+    let img_apple = new Image()
+
+    img_apple.src = 'img/img.png'
 
     // Тело змейки
     let snake = []
@@ -43,19 +46,19 @@ function startGame() {
     function move() {
         let keyCode;
         keyCode = window.event.key
-        if ((keyCode === 'w' || keyCode === 'ArrowUp') && !dy) {
+        if ((keyCode == 'w' || keyCode === 'ArrowUp') && !dy) {
             dx = 0
             dy = -20
         }
-        if ((keyCode === 's' || keyCode === 'ArrowDown') && !dy) {
+        if ((keyCode == 's' || keyCode === 'ArrowDown') && !dy) {
             dx = 0
             dy = 20
         }
-        if ((keyCode === 'a' || keyCode === 'ArrowLeft') && !dx) {
+        if ((keyCode == 'a' || keyCode === 'ArrowLeft') && !dx) {
             dx = -20
             dy = 0
         }
-        if ((keyCode === 'd' || keyCode === 'ArrowRight') && !dx) {
+        if ((keyCode == 'd' || keyCode === 'ArrowRight') && !dx) {
             dx = 20
             dy = 0
         }
@@ -96,8 +99,9 @@ function startGame() {
             ctx.fillStyle = 'rgb(70,117,52)'
             ctx.fillRect(0, 0, 500, 500)
 
-            ctx.fillStyle = 'rgb(112,25,25)'
-            ctx.fillRect(apple.x, apple.y, 20, 20)
+            // ctx.fillStyle = 'rgb(112,25,25)'
+            // ctx.fillRect(apple.x, apple.y, 20, 20)
+            ctx.drawImage(img_apple, apple.x, apple.y)
 
             ctx.fillStyle = 'rgb(0, 0, 0)'
             ctx.fillRect(snake[0].x, snake[0].y, 20, 20)
